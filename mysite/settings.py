@@ -39,6 +39,7 @@ ALLOWED_HOSTS = ['.nasoj.me']
 # Application definition
 
 INSTALLED_APPS = [
+    'gunicorn',
     'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
