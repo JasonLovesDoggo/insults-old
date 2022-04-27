@@ -3,9 +3,14 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.utils import timezone
 from django.views import generic
+from django.views.generic import RedirectView
 
 from .models import Choice, Question
 
+class BaseRedirectView(RedirectView):
+    pattern_name = 'redirect-to-login'
+    def get_redirect_url(self, *args, **kwargs):
+        return '/polls'
 
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'

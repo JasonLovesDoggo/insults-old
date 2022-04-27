@@ -33,12 +33,13 @@ SECRET_KEY = os.getenv('DJ_SECRET_KEY')
 DEBUG = False #TODO change
 STATIC_ROOT = os.path.join(BASE_DIR, 'polls/static')
 
-ALLOWED_HOSTS = ['.nasoj.me']
+ALLOWED_HOSTS = ['.nasoj.me', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'gunicorn',
     'polls.apps.PollsConfig',
     'django.contrib.admin',
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
