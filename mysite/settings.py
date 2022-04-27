@@ -30,9 +30,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv('DJ_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False #TODO change
+STATIC_ROOT = os.path.join(BASE_DIR, 'polls/static')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.nasoj.me']
 
 
 # Application definition
